@@ -11,7 +11,7 @@ import jakarta.persistence.ManyToOne;
 public class Book {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;
@@ -20,7 +20,7 @@ public class Book {
     private String isbn;
     private double price;
 
-    @ManyToOne 
+    @ManyToOne
     @JoinColumn(name = "categoryid")
     private Category category;
 
@@ -82,6 +82,7 @@ public class Book {
     public void setId(Long id) {
         this.id = id;
     }
+
     public Category getCategory() {
         return category;
     }

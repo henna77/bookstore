@@ -10,7 +10,7 @@ import jakarta.persistence.OneToMany;
 @Entity
 public class Category {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long categoryid;
     private String name;
 
@@ -39,9 +39,11 @@ public class Category {
     public void setName(String name) {
         this.name = name;
     }
+
     public java.util.List<Book> getBooks() {
         return books;
     }
+
     public void setBooks(java.util.List<Book> books) {
         this.books = books;
     }
