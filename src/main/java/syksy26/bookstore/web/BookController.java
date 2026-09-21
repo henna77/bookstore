@@ -8,14 +8,16 @@ import syksy26.bookstore.domain.Book;
 import syksy26.bookstore.domain.BookRepository;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.PathVariable;
-
+import syksy26.bookstore.domain.CategoryRepository;
 @Controller
 public class BookController {
 
     private BookRepository repository;
+    private CategoryRepository categoryRepository;
 
-    public BookController(BookRepository repository) {
+    public BookController(BookRepository repository, CategoryRepository categoryRepository) {
         this.repository = repository;
+        this.categoryRepository = categoryRepository;
     }
 
     @RequestMapping(value = "/booklist")
@@ -27,6 +29,7 @@ public class BookController {
     @RequestMapping(value = "/add")
     public String addBook(Model model) {
         model.addAttribute("book", new Book());
+        model.addAttribute("categories", categoryRepository.findAll());
         return "addbook";
     }
 
