@@ -13,10 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 import java.util.Optional;
 
-
-
-
-
 @Controller
 public class BookController {
 
@@ -58,18 +54,5 @@ public class BookController {
         model.addAttribute("book", repository.findById(id).get());
         return "editbook";
     }
-
-    @RequestMapping(value = "/books", method=RequestMethod.GET)
-    public @ResponseBody List<Book> bookListRest() {
-        return (List<Book>) repository.findAll();
-    }
-
-    @RequestMapping(value ="/books/{id}", method=RequestMethod.GET)
-    public @ResponseBody Optional<Book> getOneBookRest(@PathVariable("id") Long id) {
-        return repository.findById(id);
-    }
-    
-    
-    
 
 }
