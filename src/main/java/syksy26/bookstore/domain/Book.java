@@ -22,7 +22,7 @@ public class Book {
     private String isbn;
     private double price;
 
-    @JsonIgnoreProperties ("books")
+    @JsonIgnoreProperties("books")
     @ManyToOne
     @JoinColumn(name = "categoryid")
     private Category category;
